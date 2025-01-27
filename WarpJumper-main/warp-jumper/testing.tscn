@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctjqi54yai1p3"]
-
-[ext_resource type="PackedScene" uid="uid://bleu552rpg7ci" path="res://teleporting/Portal Handler/portal_handler.tscn" id="1_bmr5w"]
-
-[node name="Testing" type="Node2D"]
-
-[node name="PortalHandler" parent="." instance=ExtResource("1_bmr5w")]
-position = Vector2(307, 250)
