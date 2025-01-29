@@ -14,6 +14,10 @@ config/name="Warp Jumper"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://teleporting/Global.gd"
+
 [input]
 
 Teleport={

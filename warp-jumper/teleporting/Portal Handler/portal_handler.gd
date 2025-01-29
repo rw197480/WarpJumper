@@ -7,7 +7,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	$Marker2D.position.x = distance[0]
+	$Marker2D.position.x = distance[Global.level -1]
 	pass # Replace with function body.
 
 

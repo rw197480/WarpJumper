@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ckvhxyqmfy5sx"]
+[gd_scene load_steps=27 format=3 uid="uid://ckvhxyqmfy5sx"]
 
 [ext_resource type="Script" path="res://teleporting/portal.gd" id="1_otn21"]
 [ext_resource type="Texture2D" uid="uid://huw4h2ni3ape" path="res://teleporting/pixel_portal-sprite.png" id="2_s2gmc"]
@@ -46,10 +46,6 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v6no"]
 atlas = ExtResource("2_s2gmc")
 region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bbimf"]
-atlas = ExtResource("2_s2gmc")
-region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84421"]
 atlas = ExtResource("2_s2gmc")
@@ -129,9 +125,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_5v6no")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bbimf")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_84421")
 }, {
 "duration": 1.0,
@@ -151,7 +144,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"PortalOpen",
-"speed": 7.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -210,7 +203,7 @@ script = ExtResource("1_otn21")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.28125, 4.34375)
 sprite_frames = SubResource("SpriteFrames_ibldh")
-animation = &"PortalClose"
+animation = &"PortalStay"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
