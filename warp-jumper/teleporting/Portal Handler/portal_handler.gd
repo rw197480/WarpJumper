@@ -8,11 +8,15 @@ extends Node2D
 func _ready() -> void:
 	
 	$Marker2D.position.x = distance[Global.level -1]
+	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		Global.level +=1
+		$Marker2D.position.x = distance[Global.level -1]
 	teleport()
 	pass
 
