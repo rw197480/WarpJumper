@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var ap :AnimationPlayer = $AnimationPlayer
+@export var wait_time = [15, 20, 25]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -13,13 +14,10 @@ func _process(delta: float) -> void:
 
 func jumpintro():
 	ap.play("PortalJumpIntro")
-	$Timer.start()
+	
 	pass
 
-
-
-
-func _on_timer_timeout() -> void:
-	$Timer.stop()
+func jumpend():
 	ap.play("PortalJumpEnd")
-	pass # Replace with function body.
+	
+	pass

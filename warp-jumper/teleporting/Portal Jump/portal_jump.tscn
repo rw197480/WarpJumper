@@ -196,10 +196,6 @@ libraries = {
 autoplay = "PortalJumpIntro"
 speed_scale = 3.0
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
@@ -213,5 +209,3 @@ animation = &"PortalJumpIntro"
 position = Vector2(580, 326)
 scale = Vector2(0.282227, 0.301852)
 texture = ExtResource("1_imphd")
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
