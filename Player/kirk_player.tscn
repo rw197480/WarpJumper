@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvnp87pgvipqk"]
+[gd_scene load_steps=7 format=3 uid="uid://cvnp87pgvipqk"]
 
 [ext_resource type="Script" path="res://Player/kirk_player.gd" id="1_7kck1"]
 [ext_resource type="Texture2D" uid="uid://d15onumrxojmc" path="res://Player/NonKirk.png" id="2_6peum"]
+[ext_resource type="PackedScene" uid="uid://bhmotg4cfk2cs" path="res://Player/health.tscn" id="3_c4ske"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iovwc"]
 
@@ -36,3 +37,9 @@ shape = SubResource("RectangleShape2D_uwwbo")
 position = Vector2(0, 1)
 scale = Vector2(0.155642, 0.185328)
 texture = ExtResource("2_6peum")
+
+[node name="Health" parent="." instance=ExtResource("3_c4ske")]
+offset_left = -22.0
+offset_top = -34.0
+offset_right = 22.0
+offset_bottom = -29.0
