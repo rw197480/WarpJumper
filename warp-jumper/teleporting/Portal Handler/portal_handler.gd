@@ -6,6 +6,7 @@ extends Node2D
 @onready var ap :AnimationPlayer = $AnimationPlayer
 @export var portal_jump = preload("res://teleporting/Portal Jump/portal_jump.tscn")
 @export var wait_time = [3, 4, 5]
+@export var portal_beam = preload ("res://teleporting/Portal Beam/portal_beam.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -21,6 +22,7 @@ func _process(delta: float) -> void:
 		$Marker2D.position.x = distance[Global.level -1]
 	teleport()
 	portaljump()
+	portalbeam()
 	pass
 
 
@@ -47,4 +49,14 @@ func portaljump():
 		await get_tree().create_timer(wait_time[Global.level - 1]).timeout
 		
 		new_originportal_jump.jumpend()
+	pass
+
+
+func portalbeam():
+	if Input.is_action_just_pressed("Portal Beam"):
+		var new_portal_beam = portal_beam.instantiate()
+		new_portal_beam.global_position = $Marker2D.global_position
+		get_tree().get_root().add_child(new_portal_beam)
+	
+	
 	pass

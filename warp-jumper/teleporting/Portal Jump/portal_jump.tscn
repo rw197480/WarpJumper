@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bh71ase5n7hgs"]
+[gd_scene load_steps=13 format=3 uid="uid://bh71ase5n7hgs"]
 
 [ext_resource type="Script" path="res://teleporting/Portal Jump/portal_jump.gd" id="1_alqm1"]
 [ext_resource type="Texture2D" uid="uid://divr4mtngcfc" path="res://teleporting/Portal Jump/sceen effects(2).png" id="1_imphd"]
+[ext_resource type="AudioStream" uid="uid://3q3po0eydqj5" path="res://teleporting/Portal Jump/time stop start.wav" id="2_l8dhs"]
+[ext_resource type="AudioStream" uid="uid://bhqarcn2cgtui" path="res://teleporting/Portal Jump/time stop end.wav" id="3_ods5b"]
 [ext_resource type="Texture2D" uid="uid://cpulxa6liwvfh" path="res://teleporting/Portal Jump/portal jump intro(2).png" id="3_v6kd1"]
 
 [sub_resource type="Animation" id="Animation_u6mu0"]
@@ -55,6 +57,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../PortalJumpEnd")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_umqlo"]
 resource_name = "PortalJumpIntro"
@@ -106,6 +122,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../PortalJumpStart")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_mr341"]
@@ -187,6 +217,12 @@ animations = [{
 
 [node name="PortalJump" type="Node2D"]
 script = ExtResource("1_alqm1")
+
+[node name="PortalJumpStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_l8dhs")
+
+[node name="PortalJumpEnd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ods5b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CanvasLayer/AnimatedSprite2D")

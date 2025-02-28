@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var ap :AnimationPlayer = $AnimationPlayer
-@export var wait_time = [15, 20, 25]
+@export var wait_time = [10, 20, 25]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	

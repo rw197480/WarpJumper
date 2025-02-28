@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@onready var ap :AnimationPlayer = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 
 func openportal():
 	$AnimatedSprite2D.play("PortalOpen")
+	ap.play("PortalOpen")
 	pass
 
 func portalstay():
@@ -23,4 +24,5 @@ func portalstay():
 
 func closeportal():
 	$AnimatedSprite2D.play("PortalClose")
+	ap.play("PortalClose")
 	pass
