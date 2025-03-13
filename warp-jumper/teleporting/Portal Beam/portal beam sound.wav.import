@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpwms80b01hns"
+path="res://.godot/imported/portal beam sound.wav-3e5c35a97940b5e6162aec592e404b81.sample"
+
+[deps]
+
+source_file="res://teleporting/Portal Beam/portal beam sound.wav"
+dest_files=["res://.godot/imported/portal beam sound.wav-3e5c35a97940b5e6162aec592e404b81.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
