@@ -8,6 +8,7 @@ size = Vector2(55, 55)
 
 [node name="Grunt" type="CharacterBody2D"]
 script = ExtResource("1_inule")
+movement_speed = null
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.285455, 0.352459)

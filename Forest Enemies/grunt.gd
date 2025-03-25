@@ -3,9 +3,44 @@ extends CharacterBody2D
 
 @export var movement_speed: float = 70.0
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
+var grunt = preload()
+var health := 1
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+	var seed = randi_range(0, 2)
+	
+	health = [1,3,7][seed]
+	
+	var ran_scale = [1,2,3][seed] 
+	
+	$AnimatedSprite2D.scale *= ran_scale
+	$CollisionShape2D.scale *= ran_scale
+	$Hitbox/CollisionShape2D.scale *= ran_scale
+	
+	
+	var ran_spin = ["rotate left", "rotate right"][randi_range(0,1)]
+	
+	ap.play(ran_spin, -1, randf_range(0.5,2.0))
+	
+	
+	var impulse_vec = Global.player.global_position - global_position
+	impulse_vec = impulse_vec.normalized()
+	impulse_vec *= randf_range(100, 300)
+	apply_central_impulse(impulse_vec)
+	
+	pass
+
+
+func spawn():
+	var rand_rot = randf_range(0,360)
+	rotation_degrees = rand_rot
+	
+	var new_grunt = grunt.instantiate()
+	new_grunt.global_position = $Marker2D.global_position
+	
+	get_tree().get_root().add_child(new_grunt)
+
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.set_target_position(movement_target)
