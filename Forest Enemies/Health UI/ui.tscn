@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd53ollsnwdc7"]
+
+[ext_resource type="Script" path="res://Forest Enemies/Health UI/ui.gd" id="1_iymii"]
+[ext_resource type="Texture2D" uid="uid://bjv50w26o3e5y" path="res://Forest Enemies/Health UI/damage.png" id="1_xx1xc"]
+[ext_resource type="Texture2D" uid="uid://cqan78urwulce" path="res://Forest Enemies/Health UI/health-container.png" id="2_2o16d"]
+[ext_resource type="Texture2D" uid="uid://wbxxlakeeko5" path="res://Forest Enemies/Health UI/health.png" id="3_ffftg"]
+
+[node name="Ui" type="CanvasLayer"]
+script = ExtResource("1_iymii")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 440.0
+offset_top = 39.0
+offset_right = 511.0
+offset_bottom = 76.0
+text = "SCORE"
+
+[node name="Health Bar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_under = ExtResource("1_xx1xc")
+texture_over = ExtResource("2_2o16d")
+texture_progress = ExtResource("3_ffftg")
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 34.0
+offset_top = 92.0
+offset_right = 178.0
+offset_bottom = 144.0
+text = "RESTART"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

@@ -5,4 +5,4 @@
 [node name="Testing" type="Node2D"]
 
 [node name="PortalHandler" parent="." instance=ExtResource("1_bmr5w")]
-position = Vector2(307, 250)
+position = Vector2(245, 228)

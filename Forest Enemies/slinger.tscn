@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://0o6a2msp00lv"]
+
+[ext_resource type="Texture2D" uid="uid://d0xxuvbaib70g" path="res://Forest Enemies/307e71bc2e6114c-removebg-preview.png" id="1_dmiqm"]
+[ext_resource type="Script" path="res://Forest Enemies/finite_state_machine.gd" id="2_rhbfk"]
+[ext_resource type="Script" path="res://State_1_0.gd" id="3_opirh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4co1"]
+radius = 50.448
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_okfmo"]
+radius = 350.0
+
+[node name="Slinger" type="CharacterBody2D"]
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999985, -1.99998)
+scale = Vector2(0.264, 0.264)
+texture = ExtResource("1_dmiqm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_j4co1")
+
+[node name="debug" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PLayer Detection" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLayer Detection"]
+visible = false
+shape = SubResource("CircleShape2D_okfmo")
+
+[node name="FiniteStateMachine" type="Node2D" parent="."]
+script = ExtResource("2_rhbfk")
+
+[node name="Idle" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_opirh")
+
+[node name="Patrol" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_opirh")
+
+[node name="Chase" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_opirh")
+
+[node name="Attack" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_opirh")
+
+[node name="Hurt" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_opirh")
+
+[node name="Dead" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_opirh")
+
+[node name="RandomPatrolTimer" type="Timer" parent="."]
+autostart = true

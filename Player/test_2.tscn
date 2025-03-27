@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://3j1hpjqjyrlx"]
+
+[ext_resource type="Texture2D" uid="uid://pr1ybg56yadn" path="res://icon.svg" id="1_8wrsb"]
+[ext_resource type="PackedScene" uid="uid://ewiu6vybhjbh" path="res://Forest Enemies/grunt.tscn" id="2_5rk2k"]
+[ext_resource type="PackedScene" uid="uid://cvnp87pgvipqk" path="res://Player/kirk_player.tscn" id="3_j7wjd"]
+[ext_resource type="PackedScene" uid="uid://bhmotg4cfk2cs" path="res://Player/health.tscn" id="4_243tf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_878e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwgyc"]
+size = Vector2(199.5, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxjdd"]
+size = Vector2(155, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5a2x"]
+size = Vector2(182.5, 43.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me61d"]
+size = Vector2(199.75, 39.5)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cfon0"]
+vertices = PackedVector2Array(36.7266, 615.758, 32.3828, 582.82, 224.102, 579.891, 248.203, 610.141, 277.32, 560.969, 240.719, 533.102, 458.672, 561.969, 383.188, 490.078, 441.078, 493.117, 501.438, 516.242, 679.727, 506.438, 566.594, 431.359, 605.344, 420.023, 690.852, 451.906, 803.797, 423.594, 868.781, 453.891, 871.156, 424.797)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 4, 5, 7, 8, 9), PackedInt32Array(10, 9, 8, 11, 12, 13), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(15, 14, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(878, 464, 882, 415, 604, 410, 563, 422, 439, 483, 382, 480, 233, 525, 217, 570, 21, 573, 28, 626, 254, 620, 283, 571, 463, 572, 506, 526, 688, 516, 699, 462)])
+
+[node name="Test2" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_878e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(132.25, 628.5)
+shape = SubResource("RectangleShape2D_cwgyc")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(133, 625.25)
+scale = Vector2(1.54688, 0.230468)
+texture = ExtResource("1_8wrsb")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(569.5, 521)
+shape = SubResource("RectangleShape2D_qxjdd")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(768.75, 467.75)
+shape = SubResource("RectangleShape2D_r5a2x")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-30, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(394.125, 586.75)
+shape = SubResource("RectangleShape2D_me61d")
+
+[node name="Grunt" parent="." instance=ExtResource("2_5rk2k")]
+position = Vector2(785, 413)
+
+[node name="Kirk" parent="." instance=ExtResource("3_j7wjd")]
+position = Vector2(71, 570)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_cfon0")
+
+[node name="Health" parent="." instance=ExtResource("4_243tf")]

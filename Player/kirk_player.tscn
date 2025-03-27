@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvnp87pgvipqk"]
+
+[ext_resource type="Script" path="res://Player/kirk_player.gd" id="1_7kck1"]
+[ext_resource type="Texture2D" uid="uid://d15onumrxojmc" path="res://Player/NonKirk.png" id="2_6peum"]
+[ext_resource type="PackedScene" uid="uid://bhmotg4cfk2cs" path="res://Player/health.tscn" id="3_c4ske"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iovwc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e35wh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_iovwc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwwbo"]
+size = Vector2(39, 47)
+
+[node name="Kirk" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_7kck1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.18142, 0.184363)
+sprite_frames = SubResource("SpriteFrames_e35wh")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uwwbo")
+
+[node name="NonKirk" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.155642, 0.185328)
+texture = ExtResource("2_6peum")
+
+[node name="Health" parent="." instance=ExtResource("3_c4ske")]
+offset_left = -22.0
+offset_top = -34.0
+offset_right = 22.0
+offset_bottom = -29.0

@@ -1,0 +1,83 @@
+[gd_scene load_steps=15 format=3 uid="uid://c6h6hafd2poy6"]
+
+[ext_resource type="Script" path="res://teleporting/Portal Beam/portal_beam.gd" id="1_8bebq"]
+[ext_resource type="Texture2D" uid="uid://ck5yqsu42q1n6" path="res://teleporting/Portal Beam/laser beam.webp" id="1_aonci"]
+[ext_resource type="Texture2D" uid="uid://y48jrlhtu4mn" path="res://teleporting/Portal Beam/bluelight.png" id="3_f7lbe"]
+[ext_resource type="Texture2D" uid="uid://b1vq52esyd5tu" path="res://teleporting/Portal Beam/beams.png" id="4_4qvqx"]
+[ext_resource type="AudioStream" uid="uid://bpwms80b01hns" path="res://teleporting/Portal Beam/portal beam sound.wav" id="5_61vcn"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ubpbn"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(152.84, -9.18, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0tc72"]
+radius = 36.1248
+
+[sub_resource type="Curve" id="Curve_wkv85"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fp8pt"]
+curve = SubResource("Curve_wkv85")
+
+[sub_resource type="Curve" id="Curve_5gg8r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5sedg"]
+curve = SubResource("Curve_5gg8r")
+
+[sub_resource type="Curve" id="Curve_abx6i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_krpbk"]
+curve = SubResource("Curve_abx6i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7ank4"]
+lifetime_randomness = 0.49
+particle_flag_disable_z = true
+spread = 107.697
+initial_velocity_max = 279.57
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_krpbk")
+color = Color(0, 1, 1, 0.329412)
+alpha_curve = SubResource("CurveTexture_fp8pt")
+emission_curve = SubResource("CurveTexture_5sedg")
+turbulence_enabled = true
+
+[node name="PortalBeam" type="Area2D"]
+position = Vector2(-21, 1)
+script = ExtResource("1_8bebq")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(-54, 5)
+process_material = SubResource("ParticleProcessMaterial_ubpbn")
+texture = ExtResource("1_aonci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, -1)
+shape = SubResource("CircleShape2D_0tc72")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(21, -1)
+amount = 22
+process_material = SubResource("ParticleProcessMaterial_7ank4")
+texture = ExtResource("3_f7lbe")
+lifetime = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(68, 5)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("4_4qvqx")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(166.486, 219.82, 38.599, 78.529)
+
+[node name="PortalBeamSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_61vcn")
+autoplay = true
