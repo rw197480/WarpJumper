@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ewiu6vybhjbh"]
+
+[ext_resource type="Script" path="res://Forest Enemies/grunt.gd" id="1_inule"]
+[ext_resource type="Texture2D" uid="uid://boof1bjsnpdrp" path="res://Forest Enemies/images-removebg-preview.png" id="2_ibuka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qltvq"]
+size = Vector2(55, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4eotr"]
+
+[node name="Grunt" type="CharacterBody2D"]
+script = ExtResource("1_inule")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.285455, 0.352459)
+texture = ExtResource("2_ibuka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qltvq")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_4eotr")
