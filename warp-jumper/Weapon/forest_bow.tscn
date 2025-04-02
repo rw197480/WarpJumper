@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bodlw1ylcyy0n"]
+
+[ext_resource type="Script" path="res://Weapon/forest_bow.gd" id="1_rti10"]
+[ext_resource type="Texture2D" uid="uid://b3ufltpo0yduq" path="res://Weapon/Bow and Arrow.jpg" id="2_38k6d"]
+
+[node name="Forest Bow" type="Node2D"]
+script = ExtResource("1_rti10")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 1.90735e-06)
+scale = Vector2(0.165992, 0.105121)
+texture = ExtResource("2_38k6d")

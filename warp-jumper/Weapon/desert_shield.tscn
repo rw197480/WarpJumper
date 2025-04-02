@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://blqqeo152maww"]
+
+[ext_resource type="Script" path="res://Weapon/desert_shield.gd" id="1_d3h5u"]
+[ext_resource type="Texture2D" uid="uid://bundcnjujg5kj" path="res://Weapon/Shield.jpg" id="2_3lblo"]
+
+[node name="Desert Shield" type="Node2D"]
+script = ExtResource("1_d3h5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Shield" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.0557292, 0.0260417)
+texture = ExtResource("2_3lblo")
