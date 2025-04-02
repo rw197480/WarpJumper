@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bn1ke6fk0lmht"]
 
-[ext_resource type="Script" path="res://texture_rect.gd" id="1_skjpo"]
-[ext_resource type="Texture2D" uid="uid://bk3r42oa8rj1c" path="res://Backgrounds/Forest.png" id="2_v0bta"]
+[ext_resource type="Script" path="res://texture_rect.gd" id="1_86lte"]
+[ext_resource type="Texture2D" uid="uid://bk3r42oa8rj1c" path="res://Backgrounds/Forest.png" id="2_6ysd7"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,9 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 3
-script = ExtResource("1_skjpo")
+script = ExtResource("1_86lte")
 
 [node name="Forest" type="Sprite2D" parent="."]
 position = Vector2(585, 171)
 scale = Vector2(0.788333, 1.15778)
-texture = ExtResource("2_v0bta")
+texture = ExtResource("2_6ysd7")
