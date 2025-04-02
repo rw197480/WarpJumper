@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var movement_speed: float = 70.0
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
-var grunt = preload()
+var grunt = preload("res://Forest Enemies/grunt.tscn")
 var health := 1
 
 func _ready() -> void:
@@ -21,13 +21,13 @@ func _ready() -> void:
 	
 	var ran_spin = ["rotate left", "rotate right"][randi_range(0,1)]
 	
-	ap.play(ran_spin, -1, randf_range(0.5,2.0))
 	
 	
-	var impulse_vec = Global.player.global_position - global_position
-	impulse_vec = impulse_vec.normalized()
-	impulse_vec *= randf_range(100, 300)
-	apply_central_impulse(impulse_vec)
+	if Global.player:
+		var impulse_vec = Global.player.global_position - global_position
+		impulse_vec = impulse_vec.normalized()
+		impulse_vec *= randf_range(100, 300)
+	
 	
 	pass
 
@@ -72,3 +72,22 @@ func _physics_process(delta):
 func _on_velocity_computed(safe_velocity: Vector2):
 	velocity = safe_velocity
 	move_and_slide()
+	
+func _on_hitbox_area_entered(area: CharacterBody2D) -> void:
+	
+	if area.is_in_group("Kirk"):
+		health -= 1
+		area.queue_free()
+		 
+	
+	pass # Replace with function body.
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	
+	if body.is_in_group("player"):
+		body.hit(global_position)
+	
+	
+	
+	pass
